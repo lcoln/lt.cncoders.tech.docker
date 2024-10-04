@@ -1,5 +1,5 @@
 #基础镜像使用 mysql:latest
-FROM mysql:latest
+FROM mysql:8.0
 
 #作者
 LABEL maintainer="875482941@qq.com"

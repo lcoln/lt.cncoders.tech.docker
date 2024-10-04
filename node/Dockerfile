@@ -1,15 +1,12 @@
 # 这里我用的镜像是 node 的稳定版
-FROM node:12.18.2-alpine
+FROM node:18.20.3
 
 # 拷贝项目文件进行构建
 WORKDIR /app/
 
 # 拷贝项目文件
 COPY node-next-framework ./node-next-framework
-RUN echo "https://mirrors.aliyun.com/alpine/v3.9/main/" > /etc/apk/repositories \
-  && echo "https://mirrors.aliyun.com/alpine/v3.9/community/" >> /etc/apk/repositories \
-  && echo "https://mirrors.aliyun.com/alpine/edge/testing/" >> /etc/apk/repositories \
-  && cd node-next-framework \
+RUN cd node-next-framework \
   && npm install --registry=https://registry.npm.taobao.org \
   && npm install pm2 -g
 
